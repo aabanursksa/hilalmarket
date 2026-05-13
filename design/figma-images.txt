@@ -1,0 +1,15 @@
+﻿1019:17899|Account|https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/da2fe4d4-ea6f-4394-8658-2e44b9b67e62
+1034:4855|Orders|https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/6b628a4b-0139-4b81-a208-0267e6afbbca
+747:85|Home|https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/3d9d44c0-107c-47db-828b-2ff062ea373b
+853:793|Home2|https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/daa52662-6000-47dd-b794-2a6ef5fc8bc3
+860:477|Shop|https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/667eb0a9-5e66-4027-9102-dc11d6321297
+876:6337|LatestOffers|https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/44b4f882-946c-4825-98e4-91a806588afe
+878:9330|BestSellers|https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/ee5f4ee2-5e9e-4c21-9599-dce2793c6a6b
+879:10901|NewProducts|https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/55604806-ac0a-4455-b80d-3e39e02eb59c
+879:11665|ContactUs|https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/3fd4de4c-91cd-4c27-aae9-869a304b7403
+939:2382|Favorites|https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/997b75e3-db1e-4347-b195-1feaeff50c37
+955:3550|Cart|https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/5208f1a0-4fc5-45c9-beac-8e32f896d24a
+968:3628|Checkout|https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/ac0bc2ec-8045-48ff-80b1-0bb11caf7925
+970:4623|Payment|https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/12b82014-cf18-4968-b44e-8d1e63857a06
+970:5482|Success|https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/459f0a84-c4f7-40ab-be6e-6c0434d3ca4b
+997:3670|Track|https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/c6f5d19d-de72-433a-9da0-eccb9b28fe1d

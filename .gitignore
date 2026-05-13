@@ -18,6 +18,9 @@ dist-ssr
 
 # Wrangler / Cloudflare
 .wrangler/
+
+.vite/
+*.fig.zip
 .dev.vars
 
 # Editor directories and files

@@ -97,9 +97,9 @@ function Track() {
             </div>
           </div>
           <div className="space-y-2">
-            <Button variant="outline" className="w-full border-destructive text-destructive hover:bg-destructive hover:text-white">
+            <Link to="/cancel-order"><Button variant="outline" className="w-full border-destructive text-destructive hover:bg-destructive hover:text-white">
               <X className="h-4 w-4" /> Cancel Order
-            </Button>
+            </Button></Link>
             <Button variant="outline" className="w-full">
               <Download className="h-4 w-4" /> Download Invoice
             </Button>

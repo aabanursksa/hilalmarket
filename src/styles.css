@@ -1,13 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
-
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+@custom-variant rtl (&:is([dir="rtl"] *));
+@custom-variant ltr (&:is([dir="ltr"] *));
 
 @theme inline {
-  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -50,10 +52,10 @@
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.22 0.03 260);
 
-  /* Brand: #85BF56 green */
-  --brand: oklch(0.76 0.17 135);
+  /* Brand: #6AA632 green (Figma) */
+  --brand: oklch(0.6 0.16 130);
   --brand-foreground: oklch(1 0 0);
-  --primary: oklch(0.76 0.17 135);
+  --primary: oklch(0.6 0.16 130);
   --primary-foreground: oklch(1 0 0);
 
   /* Secondary: #DB9843 orange */
@@ -76,7 +78,7 @@
   --info: oklch(0.65 0.15 230);
   --border: oklch(0.92 0.01 250);
   --input: oklch(0.92 0.01 250);
-  --ring: oklch(0.76 0.17 135);
+  --ring: oklch(0.6 0.16 130);
 }
 
 .dark {
@@ -95,4 +97,9 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
   }
+  [dir="rtl"] .text-left { text-align: right; }
+  [dir="rtl"] .text-right { text-align: left; }
+  [dir="rtl"] .ml-auto { margin-left: 0; margin-right: auto; }
+  [dir="rtl"] .mr-auto { margin-right: 0; margin-left: auto; }
+  [dir="rtl"] .space-x-reverse > :not([hidden]) ~ :not([hidden]) { --tw-space-x-reverse: 1; }
 }

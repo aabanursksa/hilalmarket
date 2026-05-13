@@ -1,11 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Shell } from "@/components/layout/Shell";
 import { PageHeader } from "@/components/PageHeader";
-import { products } from "@/lib/data";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Minus, Plus, X } from "lucide-react";
-import { useState } from "react";
+import { Minus, Plus, X, ShoppingBag } from "lucide-react";
+import { useCart } from "@/stores/cart-context";
 
 export const Route = createFileRoute("/cart")({
   head: () => ({ meta: [{ title: "Shopping Cart — HilaalMarket" }] }),
@@ -13,17 +12,26 @@ export const Route = createFileRoute("/cart")({
 });
 
 function Cart() {
-  const [items, setItems] = useState(
-    products.slice(0, 4).map((p) => ({ ...p, qty: 1 }))
-  );
-  const sub = items.reduce((s, i) => s + i.price * i.qty, 0);
+  const { items, updateQty, removeItem, subtotal } = useCart();
   const delivery = 2.5;
   const discount = 5;
-  const total = sub + delivery - discount;
+  const total = subtotal + delivery - discount;
 
-  const updateQty = (id: string, d: number) =>
-    setItems(items.map((i) => (i.id === id ? { ...i, qty: Math.max(1, i.qty + d) } : i)));
-  const remove = (id: string) => setItems(items.filter((i) => i.id !== id));
+  if (items.length === 0) {
+    return (
+      <Shell>
+        <PageHeader title="Shopping Cart" />
+        <div className="flex flex-col items-center py-20 text-center">
+          <ShoppingBag className="h-16 w-16 text-muted-foreground/30" />
+          <h2 className="mt-4 text-xl font-extrabold text-foreground">Your cart is empty</h2>
+          <p className="mt-2 text-sm text-muted-foreground">Looks like you haven't added anything yet.</p>
+          <Link to="/shop">
+            <Button className="mt-6 bg-brand hover:bg-brand/90">Continue Shopping</Button>
+          </Link>
+        </div>
+      </Shell>
+    );
+  }
 
   return (
     <Shell>
@@ -56,13 +64,13 @@ function Cart() {
                   <td className="p-4">
                     <div className="inline-flex items-center rounded-full border">
                       <button onClick={() => updateQty(it.id, -1)} className="px-2 py-1.5 hover:text-brand"><Minus className="h-3.5 w-3.5" /></button>
-                      <span className="px-3 text-sm font-semibold">{it.qty}{it.unit.match(/kg|L/) ? it.unit : ""}</span>
+                      <span className="px-3 text-sm font-semibold">{it.qty}</span>
                       <button onClick={() => updateQty(it.id, 1)} className="px-2 py-1.5 hover:text-brand"><Plus className="h-3.5 w-3.5" /></button>
                     </div>
                   </td>
                   <td className="p-4 font-bold text-brand">${(it.price * it.qty).toFixed(2)}</td>
                   <td className="p-4">
-                    <button onClick={() => remove(it.id)} className="rounded-full p-2 text-muted-foreground hover:bg-destructive/10 hover:text-destructive"><X className="h-4 w-4" /></button>
+                    <button onClick={() => removeItem(it.id)} className="rounded-full p-2 text-muted-foreground hover:bg-destructive/10 hover:text-destructive"><X className="h-4 w-4" /></button>
                   </td>
                 </tr>
               ))}
@@ -71,32 +79,30 @@ function Cart() {
           <div className="flex flex-wrap items-center gap-3 border-t bg-muted/30 p-4">
             <Input placeholder="Coupon code" className="max-w-xs" />
             <Button variant="outline" className="border-brand text-brand hover:bg-brand hover:text-white">Apply Coupon</Button>
-            <Link to="/shop" className="ml-auto text-sm text-brand hover:underline">← Continue Shopping</Link>
+            <Link to="/shop" className="ml-auto text-sm text-brand hover:underline">Continue Shopping</Link>
           </div>
         </div>
         <aside className="rounded-lg border bg-card p-6 h-fit">
-          <h3 className="text-lg font-extrabold text-brand-navy">Cart Total</h3>
+          <h3 className="text-lg font-extrabold text-foreground">Cart Total</h3>
           <div className="mt-4 space-y-3 text-sm">
-            <Row label="Sub-Total" value={`$${sub.toFixed(2)}`} />
-            <Row label="Delivery Fee" value={`$${delivery.toFixed(2)}`} />
-            <Row label="Discount" value={`-$${discount.toFixed(2)}`} valueClass="text-success" />
-            <div className="border-t pt-3">
-              <Row label="Total Cost" value={`$${total.toFixed(2)}`} bold />
+            <div className="flex justify-between">
+              <span className="text-muted-foreground">Sub-Total</span><span className="font-semibold">${subtotal.toFixed(2)}</span>
+            </div>
+            <div className="flex justify-between">
+              <span className="text-muted-foreground">Delivery Fee</span><span className="font-semibold">${delivery.toFixed(2)}</span>
+            </div>
+            <div className="flex justify-between">
+              <span className="text-muted-foreground">Discount</span><span className="font-semibold text-success">-${discount.toFixed(2)}</span>
+            </div>
+            <div className="flex justify-between border-t pt-3">
+              <span className="font-bold text-base">Total Cost</span>
+              <span className="text-lg font-extrabold text-brand">${total.toFixed(2)}</span>
             </div>
           </div>
-          <Button className="mt-5 w-full bg-brand hover:bg-brand/90 h-12">Proceed to Checkout</Button>
+          <Link to="/checkout"><Button className="mt-5 w-full bg-brand hover:bg-brand/90 h-12">Proceed to Checkout</Button></Link>
           <p className="mt-3 text-xs text-center text-muted-foreground">Free delivery on orders over $50</p>
         </aside>
       </div>
     </Shell>
-  );
-}
-
-function Row({ label, value, bold, valueClass }: { label: string; value: string; bold?: boolean; valueClass?: string }) {
-  return (
-    <div className="flex justify-between">
-      <span className={bold ? "font-bold text-base" : "text-muted-foreground"}>{label}</span>
-      <span className={`${bold ? "text-lg font-extrabold text-brand" : "font-semibold"} ${valueClass ?? ""}`}>{value}</span>
-    </div>
   );
 }

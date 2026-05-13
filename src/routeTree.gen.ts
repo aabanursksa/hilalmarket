@@ -12,9 +12,17 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as TrackRouteImport } from './routes/track'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ShopRouteImport } from './routes/shop'
+import { Route as PaymentRouteImport } from './routes/payment'
 import { Route as OrdersRouteImport } from './routes/orders'
+import { Route as OrderSuccessRouteImport } from './routes/order-success'
+import { Route as NewProductsRouteImport } from './routes/new-products'
+import { Route as LatestOffersRouteImport } from './routes/latest-offers'
 import { Route as FavoritesRouteImport } from './routes/favorites'
+import { Route as ContactUsRouteImport } from './routes/contact-us'
+import { Route as CheckoutRouteImport } from './routes/checkout'
 import { Route as CartRouteImport } from './routes/cart'
+import { Route as CancelOrderRouteImport } from './routes/cancel-order'
+import { Route as BestSellersRouteImport } from './routes/best-sellers'
 import { Route as AccountRouteImport } from './routes/account'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -33,9 +41,29 @@ const ShopRoute = ShopRouteImport.update({
   path: '/shop',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PaymentRoute = PaymentRouteImport.update({
+  id: '/payment',
+  path: '/payment',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const OrdersRoute = OrdersRouteImport.update({
   id: '/orders',
   path: '/orders',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OrderSuccessRoute = OrderSuccessRouteImport.update({
+  id: '/order-success',
+  path: '/order-success',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewProductsRoute = NewProductsRouteImport.update({
+  id: '/new-products',
+  path: '/new-products',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LatestOffersRoute = LatestOffersRouteImport.update({
+  id: '/latest-offers',
+  path: '/latest-offers',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FavoritesRoute = FavoritesRouteImport.update({
@@ -43,9 +71,29 @@ const FavoritesRoute = FavoritesRouteImport.update({
   path: '/favorites',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactUsRoute = ContactUsRouteImport.update({
+  id: '/contact-us',
+  path: '/contact-us',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CheckoutRoute = CheckoutRouteImport.update({
+  id: '/checkout',
+  path: '/checkout',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CartRoute = CartRouteImport.update({
   id: '/cart',
   path: '/cart',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CancelOrderRoute = CancelOrderRouteImport.update({
+  id: '/cancel-order',
+  path: '/cancel-order',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BestSellersRoute = BestSellersRouteImport.update({
+  id: '/best-sellers',
+  path: '/best-sellers',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AccountRoute = AccountRouteImport.update({
@@ -62,9 +110,17 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/account': typeof AccountRoute
+  '/best-sellers': typeof BestSellersRoute
+  '/cancel-order': typeof CancelOrderRoute
   '/cart': typeof CartRoute
+  '/checkout': typeof CheckoutRoute
+  '/contact-us': typeof ContactUsRoute
   '/favorites': typeof FavoritesRoute
+  '/latest-offers': typeof LatestOffersRoute
+  '/new-products': typeof NewProductsRoute
+  '/order-success': typeof OrderSuccessRoute
   '/orders': typeof OrdersRoute
+  '/payment': typeof PaymentRoute
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/track': typeof TrackRoute
@@ -72,9 +128,17 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/account': typeof AccountRoute
+  '/best-sellers': typeof BestSellersRoute
+  '/cancel-order': typeof CancelOrderRoute
   '/cart': typeof CartRoute
+  '/checkout': typeof CheckoutRoute
+  '/contact-us': typeof ContactUsRoute
   '/favorites': typeof FavoritesRoute
+  '/latest-offers': typeof LatestOffersRoute
+  '/new-products': typeof NewProductsRoute
+  '/order-success': typeof OrderSuccessRoute
   '/orders': typeof OrdersRoute
+  '/payment': typeof PaymentRoute
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/track': typeof TrackRoute
@@ -83,9 +147,17 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/account': typeof AccountRoute
+  '/best-sellers': typeof BestSellersRoute
+  '/cancel-order': typeof CancelOrderRoute
   '/cart': typeof CartRoute
+  '/checkout': typeof CheckoutRoute
+  '/contact-us': typeof ContactUsRoute
   '/favorites': typeof FavoritesRoute
+  '/latest-offers': typeof LatestOffersRoute
+  '/new-products': typeof NewProductsRoute
+  '/order-success': typeof OrderSuccessRoute
   '/orders': typeof OrdersRoute
+  '/payment': typeof PaymentRoute
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/track': typeof TrackRoute
@@ -95,9 +167,17 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/account'
+    | '/best-sellers'
+    | '/cancel-order'
     | '/cart'
+    | '/checkout'
+    | '/contact-us'
     | '/favorites'
+    | '/latest-offers'
+    | '/new-products'
+    | '/order-success'
     | '/orders'
+    | '/payment'
     | '/shop'
     | '/sitemap.xml'
     | '/track'
@@ -105,9 +185,17 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/account'
+    | '/best-sellers'
+    | '/cancel-order'
     | '/cart'
+    | '/checkout'
+    | '/contact-us'
     | '/favorites'
+    | '/latest-offers'
+    | '/new-products'
+    | '/order-success'
     | '/orders'
+    | '/payment'
     | '/shop'
     | '/sitemap.xml'
     | '/track'
@@ -115,9 +203,17 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/account'
+    | '/best-sellers'
+    | '/cancel-order'
     | '/cart'
+    | '/checkout'
+    | '/contact-us'
     | '/favorites'
+    | '/latest-offers'
+    | '/new-products'
+    | '/order-success'
     | '/orders'
+    | '/payment'
     | '/shop'
     | '/sitemap.xml'
     | '/track'
@@ -126,9 +222,17 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AccountRoute: typeof AccountRoute
+  BestSellersRoute: typeof BestSellersRoute
+  CancelOrderRoute: typeof CancelOrderRoute
   CartRoute: typeof CartRoute
+  CheckoutRoute: typeof CheckoutRoute
+  ContactUsRoute: typeof ContactUsRoute
   FavoritesRoute: typeof FavoritesRoute
+  LatestOffersRoute: typeof LatestOffersRoute
+  NewProductsRoute: typeof NewProductsRoute
+  OrderSuccessRoute: typeof OrderSuccessRoute
   OrdersRoute: typeof OrdersRoute
+  PaymentRoute: typeof PaymentRoute
   ShopRoute: typeof ShopRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TrackRoute: typeof TrackRoute
@@ -157,11 +261,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ShopRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/payment': {
+      id: '/payment'
+      path: '/payment'
+      fullPath: '/payment'
+      preLoaderRoute: typeof PaymentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/orders': {
       id: '/orders'
       path: '/orders'
       fullPath: '/orders'
       preLoaderRoute: typeof OrdersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/order-success': {
+      id: '/order-success'
+      path: '/order-success'
+      fullPath: '/order-success'
+      preLoaderRoute: typeof OrderSuccessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/new-products': {
+      id: '/new-products'
+      path: '/new-products'
+      fullPath: '/new-products'
+      preLoaderRoute: typeof NewProductsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/latest-offers': {
+      id: '/latest-offers'
+      path: '/latest-offers'
+      fullPath: '/latest-offers'
+      preLoaderRoute: typeof LatestOffersRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/favorites': {
@@ -171,11 +303,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FavoritesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contact-us': {
+      id: '/contact-us'
+      path: '/contact-us'
+      fullPath: '/contact-us'
+      preLoaderRoute: typeof ContactUsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/checkout': {
+      id: '/checkout'
+      path: '/checkout'
+      fullPath: '/checkout'
+      preLoaderRoute: typeof CheckoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/cart': {
       id: '/cart'
       path: '/cart'
       fullPath: '/cart'
       preLoaderRoute: typeof CartRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cancel-order': {
+      id: '/cancel-order'
+      path: '/cancel-order'
+      fullPath: '/cancel-order'
+      preLoaderRoute: typeof CancelOrderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/best-sellers': {
+      id: '/best-sellers'
+      path: '/best-sellers'
+      fullPath: '/best-sellers'
+      preLoaderRoute: typeof BestSellersRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/account': {
@@ -198,9 +358,17 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AccountRoute: AccountRoute,
+  BestSellersRoute: BestSellersRoute,
+  CancelOrderRoute: CancelOrderRoute,
   CartRoute: CartRoute,
+  CheckoutRoute: CheckoutRoute,
+  ContactUsRoute: ContactUsRoute,
   FavoritesRoute: FavoritesRoute,
+  LatestOffersRoute: LatestOffersRoute,
+  NewProductsRoute: NewProductsRoute,
+  OrderSuccessRoute: OrderSuccessRoute,
   OrdersRoute: OrdersRoute,
+  PaymentRoute: PaymentRoute,
   ShopRoute: ShopRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TrackRoute: TrackRoute,

@@ -25,7 +25,7 @@ function Orders() {
         <AccountSidebar />
         <div className="flex-1 rounded-lg border bg-card">
           <div className="border-b p-5">
-            <h2 className="text-lg font-extrabold text-brand-navy">Order History</h2>
+            <h2 className="text-lg font-extrabold text-foreground">Order History</h2>
             <p className="text-sm text-muted-foreground">Track and manage all your orders</p>
           </div>
           <div className="overflow-x-auto">
@@ -52,9 +52,9 @@ function Orders() {
                     </td>
                     <td className="p-4 text-muted-foreground">{o.type}</td>
                     <td className="p-4">
-                      <button disabled={o.status === "Delivered" || o.status === "Cancelled"} className="rounded-md p-2 text-destructive hover:bg-destructive/10 disabled:opacity-30">
+                      <Link to="/cancel-order" className={`rounded-md p-2 text-destructive inline-flex hover:bg-destructive/10 ${o.status === "Delivered" || o.status === "Cancelled" ? "pointer-events-none opacity-30" : ""}`}>
                         <X className="h-4 w-4" />
-                      </button>
+                      </Link>
                     </td>
                     <td className="p-4">
                       <Link to="/track" className="inline-flex items-center gap-1 text-brand hover:underline">

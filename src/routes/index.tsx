@@ -38,24 +38,25 @@ function Home() {
 function Hero() {
   return (
     <section className="bg-[#EEF7E5]">
-      <div className="container mx-auto grid grid-cols-1 gap-8 px-4 py-14 md:grid-cols-2 md:items-center">
+      <div className="container mx-auto grid grid-cols-1 gap-10 px-4 py-12 md:grid-cols-2 md:items-center">
         <div>
           <span className="inline-block rounded-full bg-secondary px-4 py-1.5 text-xs font-bold text-white">WEEKEND DISCOUNT</span>
           <h1 className="mt-4 text-4xl md:text-5xl font-extrabold leading-tight text-brand-navy">
             Shopping with us for <span className="text-brand">better quality</span> and the best price
           </h1>
-          <p className="mt-4 text-brand-navy/70 max-w-md">
-            Fresh fruits, vegetables, and everyday essentials delivered to your home in Mogadishu, daily from 7AM to 11PM.
+          <p className="mt-4 text-muted-foreground max-w-md">
+            We have prepared special discounts for you on grocery products. Don't miss these opportunities...
           </p>
           <div className="mt-6 flex items-center gap-5">
             <Button asChild size="lg" className="bg-brand hover:bg-brand/90 text-white h-12 px-6">
               <Link to="/shop">Shop Now <ArrowRight className="ml-2 h-4 w-4" /></Link>
             </Button>
             <div className="flex items-baseline gap-2">
-              <span className="text-base text-muted-foreground line-through">$45.00</span>
-              <span className="text-3xl font-extrabold text-secondary">$29.99</span>
+              <span className="text-base text-muted-foreground line-through">$26.67</span>
+              <span className="text-3xl font-extrabold text-secondary">$21.67</span>
             </div>
           </div>
+          <p className="mt-2 text-xs text-muted-foreground/60">Don't miss this limited time offer.</p>
         </div>
         <div className="relative">
           <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=900&q=70" alt="Fresh groceries" className="relative rounded-3xl shadow-xl" />
